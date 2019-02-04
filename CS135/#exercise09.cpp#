@@ -1,0 +1,40 @@
+#include <iostream>
+//include any additional header files needed by program
+using namespace std;
+
+char consonant_checker(char);
+char vowel_checker(char);
+ // insert function prototype for consonant checking function
+// insert function prototype for lowercase vowel checking function
+
+int main()
+{
+  int consonants = 0; //consonant counter
+  int vowels = 0;     //vowel counter
+  char inputch;       //current input character
+  bool valid = true;
+
+  cout << "Brian Kiaer, Lec#1010, Lab#1005, Ex#9" <<endl;
+
+  cin >> inputch;
+  cout << inputch <<endl;
+  while (cin)
+    {
+      if (!valid=='a'||!valid=='A'||!valid=='e'||!valid=='E'||!valid=='i'||!valid=='I'||!valid=='o'||!valid=='O'||!valid=='u'||!valid=='U')
+	consonants++;
+      if (valid=='a'||valid=='e'||valid=='i'||valid=='o'||valid=='u')
+	vowels++;
+      cin >> inputch;
+    }
+  cout << "There were " << consonants 
+       << " consonants found in the file." << endl;
+  cout << "There were " << vowels 
+       << " lowercase vowels found in the file." << endl;
+  return 0;
+}
+char consonant_checker(char inputch); // Place function definition for consonant checker here.
+{
+!valid=='a'||!valid=='A'||!valid=='e'||!valid=='E'||!valid=='i'||!valid=='I'||\
+!valid=='o'||!valid=='O'||!valid=='u
+// Place function definition for vowel checker here.
+

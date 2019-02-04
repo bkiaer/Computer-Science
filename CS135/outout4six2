@@ -1,0 +1,24 @@
+Brian Kiaer  Assignment #6  Section #1010
+
+License#      Make        Model       Car Type   Status
+ABCDEF        Hyundai     Tiburon     Compact    Available   
+LNP34         Lexus       Cth         Standard   Available   
+TYF789        Mitsubishi  Eclipse     Compact    Available   
+1234          Nissan      Pathfinder  Standard   Available   
+
+Processing Rentals
+License# 1234 Nissan Pathfinder Rented.
+Error: ABCDef could not be found.
+
+License#      Make        Model       Car Type   Status   
+1234          Nissan      Pathfinder  Standard   Rented      
+
+Daily rental due is $19.95
+1 car(s) is(are) currently rented.
+3 car(s) is(are) currently available.
+
+License#      Make        Model       Car Type   Status   
+ABCDEF        Hyundai     Tiburon     Compact    Available   
+LNP34         Lexus       Cth         Standard   Available   
+TYF789        Mitsubishi  Eclipse     Compact    Available   
+1234          Nissan      Pathfinder  Standard   Rented      

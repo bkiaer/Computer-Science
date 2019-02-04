@@ -1,0 +1,28 @@
+Brian Kiaer  Assignment #6  Section #1010
+
+License#      Make        Model       Car Type   Status
+CXF341        Toyota      Camry       Standard   Available   
+RMJ441        Nissan      Versa       Compact    Available   
+ZMW562        Hyundai     Tucson      Standard   Available   
+987ABCD       Ford        Fiesta      Compact    Available   
+
+Processing Rentals
+License# CXF341 Toyota Camry Rented.
+License# 987ABCD Ford Fiesta Rented.
+Error: RMZDDD could not be found.
+License# RMJ441 Nissan Versa Rented.
+
+License#      Make        Model       Car Type   Status   
+CXF341        Toyota      Camry       Standard   Rented      
+987ABCD       Ford        Fiesta      Compact    Rented      
+RMJ441        Nissan      Versa       Compact    Rented      
+
+Daily rental due is $43.85
+3 car(s) is(are) currently rented.
+1 car(s) is(are) currently available.
+
+License#      Make        Model       Car Type   Status   
+CXF341        Toyota      Camry       Standard   Rented      
+RMJ441        Nissan      Versa       Compact    Rented      
+ZMW562        Hyundai     Tucson      Standard   Available   
+987ABCD       Ford        Fiesta      Compact    Rented      

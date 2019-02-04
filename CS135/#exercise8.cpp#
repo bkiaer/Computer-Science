@@ -1,0 +1,130 @@
+//The purpose of this program is to draw a series of rectangles.
+//Expected input: a file (via Linux redirection) that contains several sets
+//of data. Each data set consists of 2 integers and a character. The first
+//integer is the vertical length and the second integer is the horizontal
+//width of a rectangle. The character is used for the drawing.
+//Expected output: for each data set, a picture of a rectangle. Each picture
+//will be labeled and there will be at least one blank line between each drawing.
+//For example, if a data set is: 4 7 $ the output should be
+//  4 by 7 Rectangle
+//  $$$$$$$
+//  $     $
+//  $     $
+//  $$$$$$$
+
+#include <iostream>
+using namespace std;
+
+void draw_rectangle(int,int,char);
+
+int main()
+{
+  int vlength,hwidth;   //the vertical length and horizontal width of a rectangle
+  char symbol;          //character used for the border of the rectangle
+  cin >> vlength;
+  while (cin)
+    {
+      cin >> hwidth >> symbol;
+      draw_rectangle(vlength,hwidth,symbol);
+      cout << endl;
+      cin >> vlength;
+    }
+}
+void draw_rectangle(int length, int width, char draw)
+//Given the vertical length and horizontal width of a rectangle along with
+//a character to be used for drawing it, if both length and width are >= 2,
+//display the outline of the rectangle with a label that includes the length
+//and width. If the length and/or the width are less than 2, display a message
+//stating that the rectangle will not be drawn. Include the requested dimensions
+//in the message.
+{
+
+}
+Last login: Wed Mar 30 14:58:40 on ttys000
+Brians-MacBook-Pro-3:~ BrianKiaer$ ssh kiaer@bobby.cs.unlv.edu
+kiaer@bobby.cs.unlv.edu's password: 
+Last login: Wed Mar 30 14:58:52 2016 from 10.81.26.27
+###############################################
+       Department of Computer Science
+              Student Server 
+
+ ########            ##       ##                
+ ##     ##           ##       ##               
+ ##     ##           ##       ##                
+ #######     #####   ######   ######  ##     ##
+ ##     ##  ##   ##  ##   ##  ##   ##  ##   ## 
+ ##     ##  ##   ##  ##   ##  ##   ##   ## ##   
+ ########    #####   ######   ######    ####  
+              bobby.cs.unlv.edu          ##   
+                                        ##    
+                                      ###     
+                                       
+Report issues/problems with B361-Lab or bobby
+           to john.kowalski@unlv.edu
+
+!!!!!!!!!!! CS370 Students !!!!!!!!!!!
+You must run your programs on Cardiac.
+  learn to Kill your processes
+  @ http://tux.cs.unlv.edu
+###############################################
+[kiaer@bobby ~]$ emacs exercise08.cpp
+[kiaer@bobby ~]$ cp ~lee/cs135labs/exercise8.cpp exercise8.cpp
+[kiaer@bobby ~]$ emacs exercise8.cpp
+[kiaer@bobby ~]$ emacs exercise08.cpp
+[kiaer@bobby ~]$ emacs exercise08.cpp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+File Edit Options Buffers Tools C++ Help                                                 
+          cin >> vlength;
+        }
+      else
+        {
+cout <<""<<endl;
+cout << "Length of " << vlength << " and/or width of " << hwidth << " is/are inv\
+alid." << endl;
+cout << "The rectangle will not be drawn." << endl;
+cin >> vlength;
+}
+}
+return 0;
+}
+void draw_rectangle(int vlength, int hwidth, char symbol)
+//Given the vertical length and horizontal width of a rectangle along with               
+//a character to be used for drawing it, if both length and width are >= 2,              
+//display the outline of the rectangle with a label that includes the length             
+//and width. If the length and/or the width are less than 2, display a message           
+//stating that the rectangle will not be drawn. Include the requested dimensions         
+//in the message.                                                                        
+{
+for (int i=0; i<hwidth; i++)
+  cout << symbol;
+cout << endl;
+for (int j=2; j <vlength; j++)
+  cout << symbol << setw(hwidth-1)<< symbol << endl;
+for (int i=0; i<hwidth; i++)
+  cout << symbol;
+cout << ""<<endl;
+}
+

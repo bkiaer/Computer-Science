@@ -1,0 +1,13 @@
+Brian Kiaer Sec#1010 Assignment#5
+
+NAME            START TIME     END TIME   TOTAL SECS
+Louise            05:10:20     05:12:20          120
+Jeff              08:11:30     08:15:20          230
+Milton            10:15:00     10:16:49          109
+Sue               20:33:55     20:36:00          125
+Jeff              07:58:44     08:00:00           76
+Sue               20:36:15     20:37:12           57
+
+Average wait time: 119.50
+Standard deviation: 60.25
+Median: 114.5

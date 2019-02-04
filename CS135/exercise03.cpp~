@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main ()
+{
+  const double TAXR = .1;                                     //tax rate on earnings
+  const double CLOTHES = .08;                                 //percentage of money spent on clothes
+  const double SUPPLIES = .15;                                //percetnage of money spent on supplies
+  const double SAVE = .3;                                     //percentage of savings
+  double rate = 15.0;                                         //hourly pay rate
+  double estimated_hours = 400.0;                             //estimated labor hours
+  cout << "Brian Kiaer LecSection#1010 LabSection#1005 Exercise #3" << endl;
+  cout << "Pay Rate: $" << rate << endl;
+  cout << "Estimated Hours Worked: $" << estimated_hours << endl;
+  double earnings = rate * estimated_hours;                   //gross earnings
+  double taxes = earnings * TAXR;                             //taxes taken from earnings
+  double earnings1 = earnings - taxes;                        //earnings after taxes taken out
+  double clothes = earnings1 * CLOTHES;                       //amount of money spent on clothes
+  double school = earnings1 * SUPPLIES;                       //amount of money spent on school supplies
+  double earnings2 = earnings1 - school - clothes;            //earnings after clothes and school supplies
+  double savings = earnings2 * SAVE;                          //amount of money put into savings
+  double leftover = earnings2 - savings;                      //leftover money after spent money
+  cout << "Gross Earnings: $" << earnings << endl; 
+  cout << "Taxes: $" << taxes << endl;
+  cout << "Amount for Clothes: $" << clothes << endl;
+  cout << "Amount for school supplies: $" << school << endl; 
+  cout << "Amount Saved: $" << savings << endl;
+  cout << "Amount Left to Spend: $" << leftover << endl;
+  return 0;
+}

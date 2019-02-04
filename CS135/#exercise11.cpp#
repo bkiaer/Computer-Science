@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <fstream>
+#include <cmath>
+using namespace std; 
+void listarrays(double[],double[],int&);
+double sums(double&,double&, double[],int&);
+int main()
+{
+  ifstream infile;
+  string filename;
+  double input[20];
+  double second[20];
+  double sums10;
+  double sums20;
+  int n=20;
+  cout <<"Brian Kiaer, Lec#1010, Lab#1005, Exercise 11" << endl;
+  cout <<"Please enter name of input file" << endl; 
+  cout << fixed << setprecision(5);
+  cin>>filename;
+  infile.open(filename.c_str());
+  infile >> input[0];
+  for(int i=0;i<20;i++)
+    {
+      infile >> input[i+1];
+    }
+  cout << setw(12) <<"Input Array" << setw(12) << "2nd Array" << endl;
+  listarrays(input,second,n);
+  sums(sums10,sums20,input,n);
+    cout<<"Sum of input values = "<<sums10+sums20<< endl;
+    sums(sums10,sums20,second,n);
+    cout <<"Sum of 1st 10 values in changed array = " << sums10 << endl;
+  infile.close();
+  return 0;
+}
+void listarrays(double input_file[], double second_array[], int& n)
+{
+  for(int j=10; j<n; j++)
+    second_array[j-10] = pow(input_file[j],(1./3.));
+  for(int i=0; i<n; i++)
+    {
+      if(i<10)
+	second_array[i+10] = input_file[i]*2;
+      cout << setw(12) << input_file[i] <<setw(12) << second_array[i]<< endl; 
+	}
+    }
+double sums(double& sums1, double& sums2, double array[],int& n)
+{
+  sums1 = 0;
+  sums2 =0;
+  for(int i = 0; i<10;i++)
+    sums1 = sums1 + array[i];
+  for(int j = 10; j<n; j++)
+    sums2 = sums2 + array [j];
+}

@@ -1,0 +1,33 @@
+Brian Kiaer  Assignment #6  Section #1010
+
+License#      Make        Model       Car Type   Status
+391WJZ        Toyota      Matrix      Premium    Available   
+128ABD        Hyundai     Elantra     Compact    Available   
+LNP599        Lexus       Cth         Standard   Available   
+123BDG        Honda       Civic       Standard   Available   
+ABC12         Mitsubishi  Evo         Premium    Available   
+
+Processing Rentals
+License# 391WJZ Toyota Matrix Rented.
+License# LNP599 Lexus Cth Rented.
+Error: 567TYU could not be found.
+License# 123BDG Honda Civic Rented.
+License# ABC12 Mitsubishi Evo Rented.
+Error: 789AB could not be found.
+
+License#      Make        Model       Car Type   Status   
+391WJZ        Toyota      Matrix      Premium    Rented      
+LNP599        Lexus       Cth         Standard   Rented      
+123BDG        Honda       Civic       Standard   Rented      
+ABC12         Mitsubishi  Evo         Premium    Rented      
+
+Daily rental due is $119.80
+4 car(s) is(are) currently rented.
+1 car(s) is(are) currently available.
+
+License#      Make        Model       Car Type   Status   
+391WJZ        Toyota      Matrix      Premium    Rented      
+128ABD        Hyundai     Elantra     Compact    Available   
+LNP599        Lexus       Cth         Standard   Rented      
+123BDG        Honda       Civic       Standard   Rented      
+ABC12         Mitsubishi  Evo         Premium    Rented      
