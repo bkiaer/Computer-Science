@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include "mastermind.h"
+using namespace std;
+
+int main()
+{
+	string winningColors[] = {"green", "orange", "purple", "yellow"};
+	mastermind myGame(4, winningColors);
+	string play[4];
+	int determineGame, gold, silver;
+	int cols = myGame.getNumberOfColumns();
+	int moves;
+	
+	
+	for(int i=0; i < 10; i++)
+	  {
+	    moves = myGame.getMoveIndex(moves);
+	    if(determineGame != 1 &&  determineGame != -1)
+	      {
+		cout <<"Turn: "<< moves << " Enter " << cols << " colors: " << endl; 
+		for(int j = 0; j < cols ; j++)
+		  cin>> play[j];
+		determineGame = myGame.move(play, gold, silver);
+		cout<<"Gold Pegs: "<< gold << endl;
+		cout<<"Silver Pegs: "<< silver << endl;
+		cout <<" "<<endl;
+	      }
+	  }
+
+	if(determineGame == 1)
+	  cout << "You Won!" << endl;
+	if(determineGame == -1)
+	  cout << "You Lost." << endl;
+	  
+	  
+}

@@ -1,0 +1,60 @@
+#include "circleCylinder.h"
+#include <iostream>
+#include <cmath>
+using namespace std;
+/*----------------------------------------------------
+Default Constructor
+PARAMETERS: default constructor, radius
+POSTCONDITION: sets radius to 1 automatically
+------------------------------------------------------*/
+
+circle::circle() 
+{
+  radius = 1; 
+  
+}
+/*-----------------------------------------------------
+Constructor
+PARAMETERS: double value named literal
+POSTCONDITION: To set radius to the double value passed named literal. 
+ ------------------------------------------------------*/
+circle::circle(double literal)
+{
+  radius = literal; 
+}
+/*----------------------------------------------------
+
+
+
+  ---------------------------------------------------*/ 
+double circle::area() const
+{
+  double temp;
+  temp = radius*radius;
+  return temp*PI;
+}
+cylinder::cylinder() : circle()
+{
+  height = 1; 
+  
+}
+cylinder::cylinder(double literal, double tall) : circle(literal)
+
+{
+  height = tall;
+    
+}
+double cylinder:: area() const
+{
+  double temp = circle::area();
+  double temp1 = circle::area();
+  temp1 = temp/PI;
+  temp1 = sqrt(temp1);
+  temp = 2*temp;
+  return temp + (height*2*PI*temp1);
+}
+
+double cylinder:: volume() const
+{
+  return circle::area()*height;
+}
