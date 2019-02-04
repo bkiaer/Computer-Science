@@ -1,0 +1,233 @@
+#include <iostream>
+using namespace std;
+
+template <class Type>
+class binSearchTree
+{
+public: 
+	binSearchTree(); 
+	binSearchTree(const binSearchTree<Type>&);
+	~binSearchTree(); 
+	binSearchTree& operator=(const binSearchTree&);
+	Type& find(int);
+
+private: 
+	struct binTreeNode
+	{
+		Type item; 
+		int index;
+		binTreeNode *left;
+		binTreeNode *right;
+
+	};
+
+        binTreeNode* find(binTreeNode*&, int);
+	void cloneTree(binTreeNode*&, binTreeNode*);
+	void destroyTree(binTreeNode*&);
+	binTreeNode* root; 
+};
+
+template<class Type>
+class sparseArray
+{
+public: 
+	Type& operator[](int);
+private: 
+	binSearchTree<Type> bst;
+};
+
+int main()
+{
+c	sparseArray<int> sArray1;
+	sArray1[9] = 14;
+      	sArray1[3] = 22;
+	sArray1[10] = 9;
+	sArray1[2] = 8;
+
+	cout << sArray1[4] << endl;
+	cout << sArray1[10] << endl;
+	cout << sArray1[9] << endl;
+	cout << sArray1[2] << endl;
+	cout << sArray1[3] << endl;
+
+	sparseArray<int> sArray2; 
+	sArray2 = sArray1;
+	sArray2[2] = 11; 
+	cout << endl;
+
+	cout << sArray2[4] << endl;
+	cout << sArray2[10] << endl;
+	cout << sArray2[9] << endl; 
+	cout << sArray2[2] << endl;
+	cout << sArray2[3] << endl;
+	
+	return 0;
+}
+/*----------------------------------------------
+FUNCTION: This function is for overloading the operator[]
+PARAMETERS: This function will pass an integer to indicate an index
+PURPOSE: The purpose of this function is to find the address of 
+the given index that is passed through.
+  -----------------------------------------------*/
+template<class Type>
+Type& sparseArray<Type>::operator[](int index)
+{  
+ return bst.find(index);
+}
+/*-----------------------------------------------------
+FUNCTION: This function is the default constructor
+PARAMETERS: It is the default constructor
+PURPOSE: The purpose of this function is to create an object with
+an empty root pointer if nothing is initialized. 
+  ---------------------------------------------------------*/
+
+template<class Type>
+binSearchTree<Type>::binSearchTree()
+{
+  root = NULL; 
+}
+/*----------------------------------------------------
+FUNCTION: Copy Constructor
+PARAMETERS: An object of the same template type is being passed by reference
+PURPOSE: The purpose of this program is to copy what is in the object 
+to the current object. 
+  --------------------------------------------------------*/
+
+template<class Type>
+binSearchTree<Type>::binSearchTree(const binSearchTree<Type>& copy)
+{
+	root = NULL; 
+	*this = copy; 
+}
+/*-------------------------------------------------------
+FUNCTION: Deconstructor
+PURPOSE: The purpose of this function is to deallocate memory
+to avoid memory leaks and dangling pointers.
+--------------------------------------------------------*/
+
+template<class Type>
+binSearchTree<Type>::~binSearchTree()
+{
+	destroyTree(root);
+}
+/*-------------------------------------------------------
+FUNCTION: Assignment Operator
+PARAMETERS: Passes an object of the same template type
+PURPOSE: THe purpose of this function is to copy the object rhs to 
+the current object. 
+  --------------------------------------------------------*/
+template<class Type>
+binSearchTree<Type>& binSearchTree<Type>::operator=(const binSearchTree<Type>& rhs)
+{
+  
+	if (this != &rhs)
+	{
+	 
+		if (root != NULL)
+			destroyTree(root);
+
+		root = NULL;
+		if (rhs.root != NULL)
+		{
+		  binTreeNode* temp; 
+		  temp = new binTreeNode;
+		  temp->index = rhs.root->index;
+		  temp->item = rhs.root->item;
+		  root = temp;
+     		  cloneTree(root, rhs.root);
+		}
+	}
+	return *this;
+}
+/*-------------------------------------------------------
+FUNCTION: find(int index)
+PARAMETERS: passes an integer to identify the index of the address
+PURPOSE: The purpose of thisfunction is to find the address of the item
+that is being called for by looking for its index by traversing 
+through a binary search tree.
+  ---------------------------------------------------------*/
+template<class Type>
+Type& binSearchTree<Type>::find(int index)
+{ 
+  return find(root, index)->item;
+}
+/*---------------------------------------------------------------------
+FUNCTION: find(binTreeNode*&r, int index)
+PARAMETERS: A pointer of the node and an integer to identify an index
+PURPOSEL The purpose of this function is to keep traversing through 
+the binary search tree until it finds the address that is being called
+for by using the index and pointer.
+  --------------------------------------------------------------------*/
+template<class Type>
+typename binSearchTree<Type>::binTreeNode* binSearchTree<Type>::find(binSearchTree<Type>::binTreeNode *& r, int index)
+{
+  if(r==NULL)
+    {
+      r = new binTreeNode;
+      r->index = index; 
+      return r;
+    }
+  else
+    {
+  if(r->index > index)
+    {
+    find(r->left, index);
+    }
+  else
+     if(r->index < index)
+     {
+    find(r->right, index);
+     }
+     else
+     if(r->index == index)
+       return r;
+	}
+}
+/*--------------------------------------------------------------------
+FUNCTION: DestroyTree(binTreeNOde*& r)
+PARAMETERS: pointer that indicates the root, or current node pointer.
+PURPOSE: The purpose of this function is to use a postorder traversal  
+to delete the nodes one at a time to ensure no memory leaks. 
+  ---------------------------------------------------------------------*/
+template<class Type>  
+void binSearchTree<Type>::destroyTree(binSearchTree<Type>::binTreeNode*& r)
+{
+	if (r != NULL)
+	{
+		destroyTree(r->left);
+		destroyTree(r->right);
+		delete r; 
+	}
+	return; 
+}
+/*------------------------------------------------------------------
+FUNCTION: cloneTree
+PARAMETERS: two pointers
+PURPOSE: the purpose of this function is to copy binary search trees to
+another object.
+  --------------------------------------------------------------------*/
+template<class Type>
+void binSearchTree<Type>::cloneTree(binSearchTree<Type>::binTreeNode*& r1, binSearchTree<Type>::binTreeNode * r2)
+{
+
+	if(r2 == NULL)
+		return;
+	if(r2-> left != NULL)
+	  {
+	    binTreeNode* temp; 
+	    temp = new binTreeNode;
+	    r1->left = temp;
+	    temp->index = r2->left->index;
+	    temp->item = r2->left->item; 
+	    cloneTree(r1->left, r2->left);
+	  }
+	if(r2->right != NULL)
+	  {
+	    binTreeNode*temp;
+	    temp = new binTreeNode;
+	    r1->right = temp;
+	    temp->index = r2->right->index;
+	    temp->item = r2->right->item;
+	    cloneTree(r1->right, r2->right);
+	  }
+}
